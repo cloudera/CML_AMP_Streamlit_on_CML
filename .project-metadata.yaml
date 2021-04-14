@@ -1,0 +1,34 @@
+name: Streamlit
+description: Run a Streamlit app inside CML.
+author: Cloudera Inc.
+specification_version: 1.0
+prototype_version: 1.0
+date: "2021-03-12"
+api_version: 1
+
+tasks:
+  - type: create_job
+    name: Install Dependencies
+    entity_label: install_dependencies
+    script: cml/install_dependencies.py
+    arguments: None
+    cpu: 1
+    memory: 2
+    short_summary: Create job to install project dependencies.
+    environment:
+      TASK_TYPE: CREATE/RUN_JOB
+    kernel: python3
+
+  - type: run_job
+    entity_label: install_dependencies
+    short_summary: Run install dependencies job.
+    long_summary: Run install dependencies job.
+
+  - type: start_application
+    name: Streamlit App
+    subdomain: streamlit
+    script: cml/launch_app.py
+    short_summary: Start Streamlit application
+    environment_variables:
+      TASK_TYPE: START_APPLICATION
+    kernel: python3
