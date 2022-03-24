@@ -1,2 +1,2 @@
-seaborn
-streamlit
+seaborn==0.11.2
+streamlit==1.7.0
