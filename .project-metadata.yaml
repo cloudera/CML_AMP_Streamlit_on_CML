@@ -11,21 +11,12 @@ runtimes:
     edition: Standard
 
 tasks:
-  - type: create_job
+  - type: run_session
     name: Install Dependencies
-    entity_label: install_dependencies
     script: cml/install_dependencies.py
-    arguments: None
-    cpu: 2
-    memory: 4
-    short_summary: Create job to install project dependencies.
-    environment:
-      TASK_TYPE: CREATE/RUN_JOB
-
-  - type: run_job
-    entity_label: install_dependencies
-    short_summary: Run install dependencies job.
-    long_summary: Run install dependencies job.
+    kernel: python3
+    cpu: 1
+    memory: 2
 
   - type: start_application
     name: Streamlit App
